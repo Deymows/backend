@@ -36,10 +36,17 @@ app.get('/ruta-protegida', authMiddleware, (request, response) => {
 })
 
 
-app.listen(
-    8080,
-    () => {
-        console.log("Esto esta funcionado")
-    }
-)
+// Export the app for serverless platforms (Vercel). When running locally, start the server.
+const PORT = process.env.PORT || 8080
+
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(
+        PORT,
+        () => {
+            console.log(`Server running on port ${PORT}`)
+        }
+    )
+}
+
+export default app
 
