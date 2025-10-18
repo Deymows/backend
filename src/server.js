@@ -22,6 +22,22 @@ app.use(cors())
 app.use(express.json())
 
 
+
+app.get('/api/status', (request, response) => {
+    response.send({
+        ok: true,
+        message: 'Esto esta funcionando'
+    })
+})
+
+app.get('/api/ping', (request, response) => {
+    response.send({
+        ok: true,
+        message: 'pong'
+    })
+})
+
+
 app.use('/api/workspace', workspace_router)
 app.use('/api/auth', auth_router)
 
@@ -36,17 +52,9 @@ app.get('/ruta-protegida', authMiddleware, (request, response) => {
 })
 
 
-// Export the app for serverless platforms (Vercel). When running locally, start the server.
-const PORT = process.env.PORT || 8080
-
-if (process.env.NODE_ENV !== 'production') {
-    app.listen(
-        PORT,
-        () => {
-            console.log(`Server running on port ${PORT}`)
-        }
-    )
-}
-
-export default app
-
+app.listen(
+    8080,
+    () => {
+        console.log("Esto esta funcionado")
+    }
+)
