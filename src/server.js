@@ -38,6 +38,13 @@ app.get('/api/ping', (request, response) => {
 })
 
 
+
+app.use('/api/users', (request, response,) => {
+    response.send({
+        ok: true,
+        message: 'Esto esta funcionando'
+    })
+})
 app.use('/api/workspace', workspace_router)
 app.use('/api/auth', auth_router)
 
