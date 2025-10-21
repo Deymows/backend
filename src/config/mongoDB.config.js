@@ -8,7 +8,8 @@ mongodb://localhost:27017/
 async function connectMongodb() {
     try{
         await mongoose.connect(ENVIROMENT.MONGO_DB_CONNECTION_STRING,{
-            timeoutMS: 60000
+            timeoutMS: 60000,
+            socketTimeoutMS: 60000,
         })
         console.log("conexion con mongodb fue exitosa")
     }
