@@ -31,7 +31,7 @@ class AuthService {
         //Enviar un mail de verificacion
         await transporter.sendMail({
             from: 'elosogamerxdxd@gmail.com',
-            to: 'elosogamerxdxd@gmail.com',
+            to: email,
             subject: 'Verificacion de correo electronico',
             html: `
             <h1>Hola desde node.js</h1>
